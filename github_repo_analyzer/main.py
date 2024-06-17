@@ -2,7 +2,7 @@ import os
 import ast
 import subprocess
 import tempfile
-from pathlib import Path
+import requests
 
 def clone_repo(repo_url, access_token=None):
     temp_dir = tempfile.mkdtemp()
@@ -89,21 +89,33 @@ def categorize_items(base_path):
 
     return categorized_items
 
-def print_section(header, items):
-    print(f"{header}:")
+def print_section(header, items, file=None):
+    output = [f"{header}:"]
     if not items:
-        print("No items found.")
+        output.append("No items found.")
     else:
         for item in items:
-            print(f"- {item}")
-    print()
+            output.append(f"- {item}")
+    output.append("")
 
-def analyze_github_repository(repo_url, access_token=None):
+    if file:
+        file.write("\n".join(output) + "\n")
+    else:
+        print("\n".join(output))
+
+def analyze_github_repository(repo_url, access_token=None, output_file=None):
     try:
         repo_path = clone_repo(repo_url, access_token)
         categorized_items = categorize_items(repo_path)
-        for header, items in categorized_items.items():
-            print_section(header, items)
+        
+        if output_file:
+            with open(output_file, 'w', encoding='utf-8') as file:
+                for header, items in categorized_items.items():
+                    print_section(header, items, file)
+            print(f"Results have been written to {output_file}")
+        else:
+            for header, items in categorized_items.items():
+                print_section(header, items)
     except subprocess.CalledProcessError as e:
         print(f"Failed to clone the repository - {e}")
     except Exception as ex:
@@ -112,4 +124,5 @@ def analyze_github_repository(repo_url, access_token=None):
 if __name__ == "__main__":
     repo_url = input("Enter GitHub repository URL (e.g., https://github.com/owner/repo): ").strip()
     access_token = input("Enter GitHub access token (press Enter if none): ").strip()
-    analyze_github_repository(repo_url, access_token)
+    output_file = input("Enter output file name (e.g., output.txt): ").strip()
+    analyze_github_repository(repo_url, access_token, output_file)

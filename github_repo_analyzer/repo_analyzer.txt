@@ -1,0 +1,120 @@
+Admin:
+- ProfileInline
+- CustomUserAdmin
+- CountryAdmin
+- OrderAdmin
+
+API Views:
+- UserDetailAPIView
+- CountryListAPIView
+- ProfileDetailAPIView
+- OrderListAPIView
+- UserWithProfileAPIView
+- UsersWithProfileCountAPIView
+- UsersFromCountryAPIView
+- UsersWithOrderStatusAPIView
+- UsersWithProfileAndOrderStatusAPIView
+- UserWithOrdersAPIView
+- UserWithProfileAndCountryAPIView
+- UserWithProfileAndOrderStatusAPIView
+- UsersWithProfileAndOrderStatusAPIView
+
+Views:
+- user_detail
+- country_list
+- profile_detail
+- order_list
+- user_with_profile
+- users_with_profile_count
+- users_from_country
+- users_with_order_status
+- users_with_profile_and_country
+- users_with_profile_and_order_status
+- users_with_profile_count_and_country
+- users_with_profile_and_order_status
+- user_with_orders
+
+Models:
+- CustomUserManager
+- CustomUser
+- Country
+- Profile
+- Order
+
+Serializers:
+- ProfileSerializer
+- UserSerializer
+- CountrySerializer
+- OrderSerializer
+
+Tests:
+- UserDetailAPITest
+- CountryListAPITest
+- ProfileDetailAPITest
+- OrderListAPITest
+- UserWithProfileAPITest
+- UsersWithProfileCountAPITest
+- UsersFromCountryAPITest
+- UsersWithOrderStatusAPITest
+- UsersWithProfileAndOrderStatusAPITest
+- UserWithOrdersAPITest
+- ViewsTestCase
+
+Signals:
+No items found.
+
+Services:
+No items found.
+
+Consumers:
+No items found.
+
+Endpoints:
+- user/<int:user_id>/
+- countries/
+- profile/<int:user_id>/
+- orders/
+- user-with-profile/<int:user_id>/
+- users-with-profile-count/
+- users-from-country/<str:country_name>/
+- users-with-order-status/<str:order_status>/
+- users-with-profile-and-country/
+- users-with-profile-and-order-status/<str:order_status>/
+- users-with-profile-count-and-country/<str:country_name>/
+- user-with-orders/<int:user_id>/
+- api/user-detail/<int:user_id>/
+- api/country-list/
+- api/profile-detail/<int:user_id>/
+- api/order-list/
+- api/user-with-profile/
+- api/users-with-profile-count/
+- api/users-from-country/<str:country_name>/
+- api/users-with-order-status/<str:order_status>/
+- api/users-with-profile-and-order-status/<str:order_status>/
+- api/user-with-orders/<int:user_id>/
+- api/user-with-profile-and-country/<int:user_id>/
+- api/user-with-profile-and-order-status/<int:user_id>/<str:order_status>/
+- api/users-with-profile-and-order-status/<str:order_status>/
+- admin/
+- 
+
+Queries:
+- get_user_with_profile
+- get_user_with_orders
+- get_users_with_profile_count
+- get_users_with_country
+- get_users_with_order_status
+- get_users_with_profile_and_order_status
+- JoinWithQuerySet
+
+Querysets:
+No items found.
+
+Others:
+- main
+- ConcernsConfig
+- Migration
+- Migration
+- Migration
+- Migration
+
