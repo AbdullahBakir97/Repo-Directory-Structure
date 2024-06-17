@@ -68,7 +68,7 @@ Results have been written to analysis_results.txt
 #### Run the Script:
 
 ```
-python fetch_structure.py
+python repo_directory_structure.py
 ```
 
 #### Provide Input:
@@ -76,7 +76,7 @@ Enter the GitHub repository URL (e.g., https://github.com/owner/repo).
 Enter the GitHub access token if the repository is private (press Enter if none).
 
 ```
-python fetch_structure.py
+python repo_directory_structure.py
 Enter GitHub repository URL (e.g., https://github.com/owner/repo): https://github.com/yourusername/sample-repo
 Enter GitHub access token (press Enter if none):
 ```
@@ -99,7 +99,7 @@ This script performs the following tasks:
 - **Extracts Endpoints:** Parses URL configuration files to extract endpoints.
 - **Outputs Results:** Prints the categorized items to the console or writes them to a specified text file.
 
-### `fetch_structure.py`
+### `repo_directory_structure.py`
 
 This script fetches the directory structure of a GitHub repository using the GitHub API.
 
@@ -116,4 +116,4 @@ This script fetches the directory structure of a GitHub repository using the Git
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the - [MIT License](LICENSE).
